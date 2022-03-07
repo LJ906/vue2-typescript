@@ -2,8 +2,6 @@
 /* tslint:disable */
 // @ts-ignore
 import icon from 'vue-svgicon'
-console.log('icon',  icon);
-
 icon.register({
   'peoples': {
     width: 128,

@@ -23,7 +23,6 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">Messages</div>
-          <!-- <div class="card-panel-num">4234234</div> -->
           <count-to
             :start-val="0"
             :end-val="28600"
@@ -40,7 +39,6 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">Purchases</div>
-          <!-- <div class="card-panel-num">4234234</div> -->
           <count-to
             :start-val="0"
             :end-val="11600"
@@ -57,7 +55,6 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">Shoppings</div>
-          <!-- <div class="card-panel-num">4234234</div> -->
           <count-to
             :start-val="0"
             :end-val="8700"
@@ -161,4 +158,5 @@ export default class ClassName extends Vue {}
     }
   }
 }
+
 </style>
