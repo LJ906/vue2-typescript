@@ -2,13 +2,18 @@
   <div class="navbar">
     <div class="vwfs-logo">
       <!-- <img :src="vwfsFsoLogo" alt=""> -->
-      logologologo
+      <!-- <span style="margin-right: 30px">logologologo</span>  -->
+      <hamburger
+        id="hamburger-container"
+        :is-active="sidebar.opened"
+        class="hamburger-container"
+        @toggle-click="toggleSideBar"
+      />
     </div>
     <div class="navbar-right">
       <span class="user-name">张三李四有限公司**</span>
       <span class="navbar-logout">
         <i class="el-icon-switch-button font-bold"></i>
-
       </span>
     </div>
   </div>
@@ -17,10 +22,26 @@
 import { Component, Vue } from 'vue-property-decorator'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const vwfsFsoLogo = require('../../../assets/vwfs-fso-logo.jpg')
+import Hamburger from '@/components/Hamburger/index.vue'
+import { AppModule } from '@/store/modules/app'
+// import { UserModule } from  '@/store/modules/user'
 
-@Component
+@Component({
+  name: 'Navbar',
+  components: {
+    Hamburger
+  }
+})
 export default class ClassName extends Vue {
-  vwfsFsoLogo = vwfsFsoLogo;
+  vwfsFsoLogo = vwfsFsoLogo
+
+  get sidebar() {
+    return AppModule.sidebar
+  }
+
+  toggleSideBar(): void {
+    AppModule.ToggleSidebar(false)
+  }
 }
 </script>
 <style scoped lang="scss">
@@ -42,10 +63,24 @@ export default class ClassName extends Vue {
   color: #fff;
   font-size: 16px;
   .vwfs-logo {
-    width: 200px;
+    // width: 200px;
     img {
-      width: 100%;
+      width: 200px;
       height: 100%;
+    }
+  }
+
+  .hamburger-container {
+    line-height: 46px;
+    height: 100%;
+    // float: left;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.025);
     }
   }
 }

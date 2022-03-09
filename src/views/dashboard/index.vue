@@ -42,6 +42,8 @@ const lineChartData: { [type: string]: ILineChartData } = {
   }
 })
 export default class ClassName extends Vue {
+  // console.log();
+  
   lineChartData = lineChartData.newVisitis
 }
 </script>

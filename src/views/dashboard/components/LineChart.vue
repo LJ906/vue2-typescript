@@ -6,6 +6,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import BaseChart from '@/components/Chart/index.vue'
+
 export interface ILineChartData {
   expectedData: number[]
   actualData: number[]
@@ -19,17 +20,10 @@ export default class LineChart extends Vue {
   @Prop({ default: 'chart' }) private className!: string
   @Prop({ default: '100%' }) private width!: string
   @Prop({ default: '350px' }) private height!: string
+  
   options = {}
 
-  // mounted(): void {
-  //   this.setOption(this.chartData)
-  // }
-
-  @Watch('chartData', { immediate: true })
-  onChartDataChange(v: ILineChartData): void {
-    this.setOption(v)
-  }
-
+  // 设置option
   setOption(chartData: ILineChartData): void {
     this.options = {
       xAxis: {
@@ -108,6 +102,12 @@ export default class LineChart extends Vue {
       ]
     }
   }
+
+  @Watch('chartData', { immediate: true })
+  onChartDataChange(v: ILineChartData): void {
+    this.setOption(v)
+  }
+
 }
 </script>
 <style scoped>

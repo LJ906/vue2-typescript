@@ -5,7 +5,7 @@
     <div
       v-if="classObj.mobile && sidebar.opened"
       class="drawer-bg"
-      @click="handleClickOutside"
+      @click="hanldeClickOutSide"
     />
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
@@ -46,6 +46,10 @@ export default class extends mixins(ResizeMixin) {
   hanldeClickOutSide(): void {
     AppModule.CloseSideBar(false);
   }
+
+
+
+
 }
 </script>
 <style lang="scss" scoped>
