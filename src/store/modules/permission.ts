@@ -20,7 +20,7 @@ const hasPermission = (roles: string[], route: RouteConfig) => {
 };
 
 // 筛选有选线的路由
-export const filterAsyncRoutes = (routes: RouteConfig[], roles: string[]) => {
+export const filterAsyncRoutes = (routes: RouteConfig[], roles: string[]): RouteConfig[] => {
   const res: RouteConfig[] = [];
   routes.forEach((route) => {
     const r = { ...route };
@@ -41,8 +41,7 @@ export interface IPermissionState {
 
 @Module({ dynamic: true, store, name: "permission" })
 class Permission extends VuexModule implements IPermissionState {
-  public routes: RouteConfig[] = constantRoutes; // 暂时用这个
-  // public routes: RouteConfig[] = []; // 所有路由集合
+  public routes: RouteConfig[] = []; // 所有路由集合
   public dynamicRoutes: RouteConfig[] = []; // 权限路由
 
   // 合并动态 路由

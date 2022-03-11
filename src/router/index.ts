@@ -38,7 +38,10 @@ export const constantRoutes: RouteConfig[] = [
           import(/* webpackChunkName: "FormComponent" */ "../views/FormComponent.vue"),
       },
     ],
-  },
+  }
+];
+
+export const asyncRoutes: RouteConfig[] = [
   {
     path: "/table",
     component: Layout,
@@ -58,12 +61,10 @@ export const constantRoutes: RouteConfig[] = [
         },
         component: () =>
           import(/* webpackChunkName: "scrollTable" */ "../views/table/scrollTable.vue"),
-      },
-    ],
-  },
-];
-
-export const asyncRoutes: RouteConfig[] = [];
+      }
+    ]
+  }
+]
 
 const createRouter = () =>
   new VueRouter({
@@ -79,5 +80,11 @@ const createRouter = () =>
   });
 
 const router = createRouter();
+
+// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+export function resetRouter(): void {
+  const newRouter = createRouter();
+  (router as any).matcher = (newRouter as any).matcher // reset router
+}
 
 export default router;

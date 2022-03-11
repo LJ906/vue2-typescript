@@ -9,8 +9,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-// 引入svg icon
+
 import '@/icons/components'
+import '@/permission'
+
 Vue.use(ElementUI, {
   size: "middle",
   // size: AppModule.size, // Set element-ui default size

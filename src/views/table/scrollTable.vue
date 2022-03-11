@@ -83,7 +83,7 @@ export default class ClassName extends Vue {
   }
 
   mounted(): void {
-    this.getTableData()
+    // this.getTableData()
   }
 
   beforeDestroy(): void {
