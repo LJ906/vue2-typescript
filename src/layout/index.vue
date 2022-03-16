@@ -87,7 +87,7 @@ export default class extends mixins(ResizeMixin) {
   height: 100%;
   position: fixed;
   font-size: 0px;
-  top: 60px;
+  top: $navHeight;
   bottom: 0;
   left: 0;
   z-index: 1001;
