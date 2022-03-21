@@ -21,6 +21,7 @@
         </div>
       </el-col>
     </el-row>
+    
   </div>
 </template>
 <script lang="ts">
@@ -30,6 +31,7 @@ import LineChart from './components/LineChart.vue'
 import PieChart from './components/PieChart.vue'
 import BountryLine from './components/BountryLine.vue'
 import BarChart from './components/BarChart.vue'
+import DragableBox from '@/components/Dragable/dragable.vue'
 
 export interface ILineChartData {
   expectedData: number[]
@@ -63,7 +65,8 @@ const lineChartData: { [type: string]: ILineChartData } = {
     LineChart,
     PieChart,
     BountryLine,
-    BarChart
+    BarChart,
+    DragableBox
   }
 })
 export default class ClassName extends Vue {

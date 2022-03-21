@@ -11,50 +11,53 @@
     <div class="main-container">
       <app-main></app-main>
     </div>
+    <div v-dragable>
+      <dragable-box>
+        <svg-icon name="wechat" color="#fff" font-size="20px"></svg-icon>
+      </dragable-box>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { Component } from "vue-property-decorator";
-import { mixins } from "vue-class-component";
-import { DeviceType, AppModule } from "@/store/modules/app";
+import { Component } from 'vue-property-decorator'
+import { mixins } from 'vue-class-component'
+import { DeviceType, AppModule } from '@/store/modules/app'
 
-import { Sidebar, AppMain, Navbar } from "./components";
-import ResizeMixin from "./mixin/resize";
+import { Sidebar, AppMain, Navbar } from './components'
+import DragableBox from '@/components/Dragable/dragable.vue'
+import ResizeMixin from './mixin/resize'
 @Component({
-  name: "Layout",
+  name: 'Layout',
   components: {
     Sidebar,
     AppMain,
-    Navbar
-  },
+    Navbar,
+    DragableBox
+  }
 })
 export default class extends mixins(ResizeMixin) {
   get classObj(): {
-    hideSidebar: boolean;
-    openSidebar: boolean;
-    withoutAnimation: boolean;
-    mobile: boolean;
+    hideSidebar: boolean
+    openSidebar: boolean
+    withoutAnimation: boolean
+    mobile: boolean
   } {
     return {
       hideSidebar: !this.sidebar.opened,
       openSidebar: this.sidebar.opened,
       withoutAnimation: this.sidebar.withoutAnimation,
-      mobile: this.device === DeviceType.Mobile,
-    };
+      mobile: this.device === DeviceType.Mobile
+    }
   }
 
   hanldeClickOutSide(): void {
-    AppModule.CloseSideBar(false);
+    AppModule.CloseSideBar(false)
   }
-
-
-
-
 }
 </script>
 <style lang="scss" scoped>
-@import "../styles/variables.scss";
-@import "../styles/mixins.scss";
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
 .app-wrapper {
   @include clearfix;
   position: relative;
