@@ -1,3 +1,6 @@
+// 引入组件hook
+// Make sure to register before importing any components
+import './class-component-hooks'
 import Vue, { DirectiveOptions } from 'vue';
 
 import 'normalize.css';

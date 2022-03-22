@@ -16,15 +16,26 @@ export const constantRoutes: RouteConfig[] = [
     },
     children: [
       {
-        path: "home",
-        name: "Home",
+        path: "dashboard",
+        name: "Dashboard",
         meta: {
-          title: "Home",
+          title: "Dashboard",
           icon: "clipboard",
           noCache: true,
         },
         component: () =>
           import(/* webpackChunkName: "home" */ "../views/dashboard/index.vue"),
+      },
+      {
+        path: "home",
+        name: "Home",
+        meta: {
+          title: "Home",
+          icon: "components",
+          noCache: true,
+        },
+        component: () =>
+          import(/* webpackChunkName: "home" */ "../views/Home.vue"),
       },
       {
         path: "formComponent",

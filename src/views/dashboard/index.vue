@@ -38,7 +38,6 @@ export interface ILineChartData {
   actualData: number[]
 }
 
-
 // 折线图数据
 const lineChartData: { [type: string]: ILineChartData } = {
   newVisitis: {
@@ -72,7 +71,11 @@ const lineChartData: { [type: string]: ILineChartData } = {
 export default class ClassName extends Vue {
   lineChartData = lineChartData.newVisitis
 
-  
+  // 路由hook已提前注册 见main
+  beforeRouteEnter(to, from, next): void {
+    console.log('beforeRouteEnter')
+    next()
+  }
 }
 </script>
 <style scoped lang="scss">
